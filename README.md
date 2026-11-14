@@ -13,13 +13,28 @@ con Node.js y Express, empaquetado en Docker y desplegable en Kubernetes.
 
 ## Endpoints
 
-| Método | Ruta | Cuerpo | Descripción |
-| POST | `/login` | `{"nombre":"andrey"}` | Registra al jugador |
-| POST | `/juego` | `{"nombre":"andrey","numero":"4271"}` | Crea una partida |
-| PUT | `/juego/{id}` | `{"nombre":"fernando","numero":"5830"}` | Se une a una partida |
-| POST | `/juego/{id}/jugar` | `{"nombre":"andrey","numero":"1234"}` | Envía un intento |
-| GET | `/juego/{id}` | — | Estado de una partida(sin secretos)|
-| GET | `/juego` | — | Lista de partidas |
+| Método | Ruta                | Cuerpo                                  | Descripción                          |
+| ------ | ------------------- | --------------------------------------- | ------------------------------------ |
+| POST   | `/login`            | `{"nombre":"andrey"}`                   | Registra al jugador                  |
+| POST   | `/juego`            | `{"nombre":"andrey","numero":"4271"}`   | Crea una partida                     |
+| PUT    | `/juego/{id}`       | `{"nombre":"fernando","numero":"5830"}` | Se une a una partida                 |
+| POST   | `/juego/{id}/jugar` | `{"nombre":"andrey","numero":"1234"}`   | Envía un intento                     |
+| GET    | `/juego/{id}`       | —                                       | Estado de una partida (sin secretos) |
+| GET    | `/juego`            | —                                       | Lista de partidas                    |
+
+### Estados de una partida
+
+`sin completar` → (se une el segundo jugador) → `en juego` → (alguien saca 4 fijas) → `terminado`
+
+### Códigos de respuesta
+
+| Código | Cuándo                                                                           |
+| ------ | -------------------------------------------------------------------------------- |
+| 400    | Datos inválidos (número con letras, repetidos, distinto de 4 cifras, sin nombre) |
+| 401    | El jugador no ha hecho login                                                     |
+| 403    | El jugador no participa en esa partida                                           |
+| 404    | La partida no existe                                                             |
+| 409    | No es su turno, la partida está llena o ya terminó                               |
 
 ### Estados de una partida
 
