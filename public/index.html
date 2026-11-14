@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picas y Fijas</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 760px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            color: #222;
+        }
+
+        h1 {
+            margin-bottom: 0.25rem;
+        }
+
+        section {
+            margin-top: 1.5rem;
+        }
+
+        input {
+            padding: 0.4rem;
+            font-size: 1rem;
+            width: 10rem;
+        }
+
+        button {
+            padding: 0.4rem 0.8rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 0.4rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f2f2f2;
+        }
+
+        #mensaje {
+            min-height: 1.5rem;
+            color: #b00020;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Picas y Fijas</h1>
+    <p id="mensaje"></p>
+
+    <section id="login">
+        <input id="nombre" placeholder="Tu nombre">
+        <button id="entrar">Entrar</button>
+    </section>
+
+    <section id="principal" hidden>
+        <p>Jugando como <strong id="yo"></strong></p>
+
+        <input id="secreto" maxlength="4" placeholder="Tu número secreto">
+        <button id="crear">Crear partida</button>
+
+        <h2>Partidas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Estado</th>
+                    <th>Creador</th>
+                    <th>Jugadores</th>
+                    <th>Ganador</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="partidas"></tbody>
+        </table>
+    </section>
+
+    <section id="detalle" hidden>
+        <h2>Partida <span id="d-id"></span></h2>
+        <p id="d-info"></p>
+
+        <input id="intento" maxlength="4" placeholder="Tu intento">
+        <button id="jugar">Jugar</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Número</th>
+                    <th>Fijas</th>
+                    <th>Picas</th>
+                </tr>
+            </thead>
+            <tbody id="intentos"></tbody>
+        </table>
+    </section>
+
+    <script src="cliente.js"></script>
+</body>
+
+</html>
