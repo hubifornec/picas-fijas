@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: picas-fijas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: picas-fijas
+  template:
+    metadata:
+      labels:
+        app: picas-fijas
+    spec:
+      containers:
+        - name: picas-fijas
+          image: deezzeagle/picas-fijas:1.0
+          ports:
+            - containerPort: 3000
