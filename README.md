@@ -70,6 +70,17 @@ src/app.js       Servidor Express y endpoints
 public/          Front básico (HTML + JavaScript)
 ```
 
+## Docker
+
+```bash
+docker build -t picas-fijas:1.0 .
+docker run -d -p 8080:3000 picas-fijas:1.0
+```
+
+Abrir `http://localhost:8080`.
+
+Imagen publicada en Docker Hub: `TU-USUARIO/picas-fijas:1.0`
+
 ## Limitaciones conocidas
 
 - **Identidad por nombre:** cualquiera puede jugar usando el nombre de otro.
