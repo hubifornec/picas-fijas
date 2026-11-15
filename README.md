@@ -81,6 +81,20 @@ Abrir `http://localhost:8080`.
 
 Imagen publicada en Docker Hub: `TU-USUARIO/picas-fijas:1.0`
 
+## Kubernetes
+
+Manifiestos en la carpeta `k8s/`: un Deployment (1 réplica) y un Service de tipo NodePort.
+
+```bash
+git clone https://github.com/TU-USUARIO/picas-fijas.git
+cd picas-fijas
+kubectl apply -f k8s/
+kubectl get pods
+```
+
+La aplicación queda disponible en el puerto `30080` de cualquier nodo.
+En Killercoda: menú **Traffic / Ports** → puerto `30080`.
+
 ## Limitaciones conocidas
 
 - **Identidad por nombre:** cualquiera puede jugar usando el nombre de otro.
