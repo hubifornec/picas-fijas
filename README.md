@@ -36,20 +36,6 @@ con Node.js y Express, empaquetado en Docker y desplegable en Kubernetes.
 | 404    | La partida no existe                                                             |
 | 409    | No es su turno, la partida está llena o ya terminó                               |
 
-### Estados de una partida
-
-`sin completar` → (se une el segundo jugador) → `en juego` → (alguien saca 4 fijas) → `terminado`
-
-### Códigos de respuesta
-
-| Código | Cuándo                                                                           |
-| ------ | -------------------------------------------------------------------------------- |
-| 400    | Datos inválidos (número con letras, repetidos, distinto de 4 cifras, sin nombre) |
-| 401    | El jugador no ha hecho login                                                     |
-| 403    | El jugador no participa en esa partida                                           |
-| 404    | La partida no existe                                                             |
-| 409    | No es su turno, la partida está llena o ya terminó                               |
-
 ## Ejecutar en local
 
 Requiere Node.js 18 o superior.
@@ -79,7 +65,7 @@ docker run -d -p 8080:3000 picas-fijas:1.0
 
 Abrir `http://localhost:8080`.
 
-Imagen publicada en Docker Hub: `TU-USUARIO/picas-fijas:1.0`
+Imagen publicada en Docker Hub: `deezzeagle/picas-fijas:1.0`
 
 ## Kubernetes
 
@@ -93,11 +79,8 @@ kubectl get pods
 ```
 
 La aplicación queda disponible en el puerto `30080` de cualquier nodo.
-En Killercoda: menú **Traffic / Ports** → puerto `30080`.
 
 ## Limitaciones conocidas
 
 - **Identidad por nombre:** cualquiera puede jugar usando el nombre de otro.
   La solución sería un token de sesión.
-- **Datos en memoria:** las partidas se pierden al reiniciar y no se comparten
-  entre réplicas, por lo que el despliegue usa 1 réplica.
